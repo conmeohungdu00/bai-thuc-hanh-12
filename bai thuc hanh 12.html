@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Giới thiệu thành viên</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Banner */
+        .banner {
+            background: linear-gradient(to right, #ff9a9e, #fad0c4);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        /* Menu */
+        .menu {
+            background-color: pink;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            padding: 15px 0;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: #ff6f91;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        /* Danh sách thành viên */
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 25px;
+            padding-bottom: 50px;
+            margin-top: 40px;
+        }
+
+        .member {
+            background: #ffe3ec;
+            border-radius: 12px;
+            text-align: center;
+            padding: 15px 10px;
+            color: #ff6f91;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .member:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+
+        /* PHẦN CHI TIẾT THÀNH VIÊN */
+        .detail {
+            display: none;
+            padding: 30px;
+            background: #ffe6ef;
+            margin: 25px auto;
+            width: 80%;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .detail h2 {
+            color: #ff6f91;
+        }
+
+        /* Nút Back */
+        .back-btn {
+            background: #ff9ab3;
+            color: white;
+            padding: 10px 18px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .back-btn:hover {
+            background: #ff6f91;
+        }
+    </style>
+
+    <script>
+        function showDetail(id) {
+            document.getElementById("list").style.display = "none";
+            document.getElementById(id).style.display = "block";
+        }
+
+        function goBack() {
+            document.querySelectorAll('.detail').forEach(d => d.style.display = "none");
+            document.getElementById("list").style.display = "grid";
+        }
+    </script>
+</head>
+
+<body>
+
+    <div class="banner">
+        Hành trình trưởng thành <br> Cùng nhau vươn xa
+    </div>
+
+    <div class="menu">
+        <a href="#">Giới thiệu</a>
+        <a href="#">Học tập</a>
+        <a href="#">Kỉ niệm</a>
+        <a href="#">Hình ảnh</a>
+        <a href="#">Liên hệ</a>
+    </div>
+
+    <!-- DANH SÁCH -->
+    <div id="list" class="container">
+        <div class="member" onclick="showDetail('binh')">Lê Văn Bình</div>
+        <div class="member" onclick="showDetail('dong')">Nguyễn Quang Đông</div>
+        <div class="member" onclick="showDetail('thao')">Nguyễn Thị Phương Thảo</div>
+        <div class="member" onclick="showDetail('tu')">Khuất Minh Tú</div>
+        <!-- … thêm tiếp nếu cần -->
+    </div>
+
+    <!-- CHI TIẾT TỪNG NGƯỜI -->
+    <div id="binh" class="detail">
+        <a class="back-btn" onclick="goBack()">← Back</a>
+        <h2>Lê Văn Bình</h2>
+        <p><b>Chức vụ:</b> Thành viên nhóm</p>
+        <p><b>Nhiệm vụ:</b> Gõ code, sửa lỗi, hỗ trợ thành viên.</p>
+    </div>
+
+    <div id="dong" class="detail">
+        <a class="back-btn" onclick="goBack()">← Back</a>
+        <h2>Nguyễn Quang Đông</h2>
+        <p><b>Chức vụ:</b> Thành viên</p>
+        <p><b>Nhiệm vụ:</b> …</p>
+    </div>
+
+    <div id="thao" class="detail">
+        <a class="back-btn" onclick="goBack()">← Back</a>
+        <h2>Nguyễn Thị Phương Thảo</h2>
+        <p><b>Chức vụ:</b> Thành viên</p>
+        <p><b>Nhiệm vụ:</b> …</p>
+    </div>
+
+    <div id="tu" class="detail">
+        <a class="back-btn" onclick="goBack()">← Back</a>
+        <h2>Khuất Minh Tú</h2>
+        <p><b>Chức vụ:</b> Thành viên</p>
+        <p><b>Nhiệm vụ:</b> …</p>
+    </div>
+
+</body>
+</html>
